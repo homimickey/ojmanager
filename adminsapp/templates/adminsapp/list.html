@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin List</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1 class="text-center">ADMIN DASHBOARD</h1>
+    <h4>Filter By</h4>
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="year">Passout Year</label>
+        <input type="number" max="9999" name="year" class="form-control" />
+      </div>
+      <button class="btn btn-success">Filter</button>
+    </form>
+    <form class="form-inline">
+      <select class="form-control" name="platform">
+        <option value="CC">Code Chef</option>
+        <option value="CF">Code Forces</option>
+        <option value="HR">Hacker Rank</option>
+        <option value="HE">Hacker Earth</option>
+      </select>
+      <button class="btn btn-success">Filter</button>
+    </form>
+    <form class="form-inline">
+      <div class="col-md-3 mb-3">
+        <label for="branch">Branch</label>
+        <select id="branch" class="form-control" name="branch">
+          <option value="CSE">CSE</option>
+          <option value="ECE">ECE</option>
+          <option value="IT">IT</option>
+          <option value="EEE">EEE</option>
+          <option value="MECH">MECH</option>
+          <option value="CIVIL">CIVIL</option>
+        </select>
+      </div>
+      <button class="btn btn-success">Filter</button>
+    </form>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">SNO</th>
+          <th scope="col">Roll No</th>
+          <th scope="col">Branch</th>
+          <th scope="col">CC</th>
+          <th scope="col">CF</th>
+          <th scope="col">HR</th>
+          <th scope="col">HE</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in object_list %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ student.roll_no }}</td>
+          <td>{{ student.branch }}</td>
+          <td>{{ student.code_chef_score }}</td>
+          <td>{{ student.code_forces_score }}</td>
+          <td>{{ student.hacker_rank_score }}</td>
+          <td>{{ student.hacker_earth_score }}</td>
+        </tr>
+        {% empty %} OOPs no students till!! {% endfor %}
+      </tbody>
+    </table>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
